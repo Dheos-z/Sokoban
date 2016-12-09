@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "constantes.h"

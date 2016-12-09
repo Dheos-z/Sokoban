@@ -12,7 +12,7 @@ Reste à faire :
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include "jeu.h"
 #include "constantes.h"
 #include "choixNiveau.h"

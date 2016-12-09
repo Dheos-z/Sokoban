@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "constantes.h"
@@ -197,6 +197,7 @@ void reset(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_Surface* 
             {
                 ligneFichier[i][j] = fgetc(fichier);
             }
+            fgetc(fichier);
             fgetc(fichier);
         }
         fclose(fichier);

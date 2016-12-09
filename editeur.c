@@ -1,7 +1,7 @@
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL_image.h>
+#include <SDL/SDL_image.h>
 #include "constantes.h"
 #include "editeur.h"
 #include "choixNiveau.h"
