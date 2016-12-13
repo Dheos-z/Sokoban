@@ -1,7 +1,7 @@
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include "constantes.h"
 #include "niveauEnregistre.h"
 
@@ -14,7 +14,7 @@ int niveauEnregistre(SDL_Surface *ecran)
     SDL_Rect posMenu;
 
 
-    menu = IMG_Load("level_saved.png");
+    menu = SDL_LoadBMP("level_saved.bmp");
     posMenu.x = 0;
     posMenu.y = 0;
 

@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "constantes.h"
@@ -43,28 +43,28 @@ int partie(SDL_Surface* ecran, char niveau[])
                 break;
 
             case SDLK_UP:
-                mario = IMG_Load("mario_haut.gif");
+                mario = SDL_LoadBMP("mario_haut.bmp");
 
                 verifieDeplacement(posMario, SDLK_UP, carte);
 
                 break;
 
             case SDLK_DOWN:
-                mario = IMG_Load("mario_bas.gif");
+                mario = SDL_LoadBMP("mario_bas.bmp");
 
                 verifieDeplacement(posMario, SDLK_DOWN, carte);
 
                 break;
 
             case SDLK_LEFT:
-                mario = IMG_Load("mario_gauche.gif");
+                mario = SDL_LoadBMP("mario_gauche.bmp");
 
                 verifieDeplacement(posMario, SDLK_LEFT, carte);
 
                 break;
 
             case SDLK_RIGHT:
-                mario = IMG_Load("mario_droite.gif");
+                mario = SDL_LoadBMP("mario_droite.bmp");
 
                 verifieDeplacement(posMario, SDLK_RIGHT, carte);
 
@@ -97,12 +97,12 @@ int partie(SDL_Surface* ecran, char niveau[])
             {
                 if(carte[i][j] == CAISSE)
                 {
-                    caisse[numCaisse] = IMG_Load("caisse.jpg");
+                    caisse[numCaisse] = SDL_LoadBMP("caisse.bmp");
                     numCaisse++;
                 }
                 else if(carte[i][j] == CAISSE_OK)
                 {
-                    caisse[numCaisse] = IMG_Load("caisse_ok.jpg");
+                    caisse[numCaisse] = SDL_LoadBMP("caisse_ok.bmp");
                     numCaisse++;
                 }
             }
@@ -228,7 +228,7 @@ void reset(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_Surface* 
             if(ligneFichier[i][j] == '1')
             {
                 carte[i][j] = CAISSE;
-                caisse[numCaisse] = IMG_Load("caisse.jpg");
+                caisse[numCaisse] = SDL_LoadBMP("caisse.bmp");
                 posCaisse[numCaisse].x = j*T_ICONE;
                 posCaisse[numCaisse].y = i*T_ICONE;
                 numCaisse++;
@@ -236,7 +236,7 @@ void reset(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_Surface* 
             else if(ligneFichier[i][j] == '3')
             {
                 carte[i][j] = MUR;
-                mur[numMur] = IMG_Load("mur.jpg");
+                mur[numMur] = SDL_LoadBMP("mur.bmp");
                 posMur[numMur].x = j*T_ICONE;
                 posMur[numMur].y = i*T_ICONE;
                 numMur++;
@@ -246,7 +246,7 @@ void reset(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_Surface* 
                 carte[i][j] = OBJECTIF;
                 carteObjectifs[i][j] = OBJECTIF;
 
-                objectif[numObjectif] = IMG_Load("objectif.png");
+                objectif[numObjectif] = SDL_LoadBMP("objectif.bmp");
                 posObjectif[numObjectif].x = j*T_ICONE;
                 posObjectif[numObjectif].y = i*T_ICONE;
                 numObjectif++;
@@ -254,7 +254,7 @@ void reset(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_Surface* 
             else if(ligneFichier[i][j] == '9')
             {
                 carte[i][j] = PERSO;
-                *perso = IMG_Load("mario_bas.gif");
+                *perso = SDL_LoadBMP("mario_bas.bmp");
                 posPerso->x = j*T_ICONE;
                 posPerso->y = i*T_ICONE;
             }

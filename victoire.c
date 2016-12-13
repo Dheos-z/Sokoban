@@ -1,5 +1,5 @@
 #include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "constantes.h"
@@ -14,7 +14,7 @@ int victoire(SDL_Surface* ecran)
     SDL_Rect posMenuVictoire;
 
 
-    menuVictoire = IMG_Load("victoire_morsay.png");
+    menuVictoire = SDL_LoadBMP("victoire_morsay.bmp");
     posMenuVictoire.x = 0;
     posMenuVictoire.y = 0;
 

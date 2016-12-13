@@ -1,7 +1,7 @@
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include "constantes.h"
 #include "editeur.h"
 #include "choixNiveau.h"
@@ -30,7 +30,7 @@ int editeur(SDL_Surface *ecran)
 
 
     // Initialisation du curseur
-    curseur = IMG_Load("mur.jpg");
+    curseur = SDL_LoadBMP("mur.bmp");
     imageCurseur = MUR;
 
 
@@ -56,45 +56,45 @@ int editeur(SDL_Surface *ecran)
 
                 // Choisir perso
             case SDLK_KP0:
-                curseur = IMG_Load("mario_bas.gif");
+                curseur = SDL_LoadBMP("mario_bas.bmp");
                 imageCurseur = PERSO;
                 break;
 
             case SDLK_0:
-                curseur = IMG_Load("mario_bas.gif");
+                curseur = SDL_LoadBMP("mario_bas.bmp");
                 imageCurseur = PERSO;
                 break;
 
                 // Choisir caisse
             case SDLK_KP1:
-                curseur = IMG_Load("caisse.jpg");
+                curseur = SDL_LoadBMP("caisse.bmp");
                 imageCurseur = CAISSE;
                 break;
 
             case SDLK_1:
-                curseur = IMG_Load("caisse.jpg");
+                curseur = SDL_LoadBMP("caisse.bmp");
                 imageCurseur = CAISSE;
                 break;
 
                 // Choisir objectif
             case SDLK_KP2:
-                curseur = IMG_Load("objectif.png");
+                curseur = SDL_LoadBMP("objectif.bmp");
                 imageCurseur = OBJECTIF;
                 break;
 
             case SDLK_2:
-                curseur = IMG_Load("objectif.png");
+                curseur = SDL_LoadBMP("objectif.bmp");
                 imageCurseur = OBJECTIF;
                 break;
 
                 // Choisir mur
             case SDLK_KP3:
-                curseur = IMG_Load("mur.jpg");
+                curseur = SDL_LoadBMP("mur.bmp");
                 imageCurseur = MUR;
                 break;
 
             case SDLK_3:
-                curseur = IMG_Load("mur.jpg");
+                curseur = SDL_LoadBMP("mur.bmp");
                 imageCurseur = MUR;
                 break;
 
@@ -240,7 +240,7 @@ int menuEditeur(SDL_Surface* ecran)
     SDL_Surface *menu = NULL;
     SDL_Rect posMenu;
 
-    menu = IMG_Load("editeur.png");
+    menu = SDL_LoadBMP("editeur.bmp");
     posMenu.x = 0;
     posMenu.y = 0;
 
@@ -350,7 +350,7 @@ void lectureNiveau(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_S
             if(ligneFichier[i][j] == '1')
             {
                 carte[i][j] = CAISSE;
-                caisse[numCaisse] = IMG_Load("caisse.jpg");
+                caisse[numCaisse] = SDL_LoadBMP("caisse.bmp");
                 posCaisse[numCaisse].x = j*T_ICONE;
                 posCaisse[numCaisse].y = i*T_ICONE;
                 numCaisse++;
@@ -358,7 +358,7 @@ void lectureNiveau(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_S
             else if(ligneFichier[i][j] == '3')
             {
                 carte[i][j] = MUR;
-                mur[numMur] = IMG_Load("mur.jpg");
+                mur[numMur] = SDL_LoadBMP("mur.bmp");
                 posMur[numMur].x = j*T_ICONE;
                 posMur[numMur].y = i*T_ICONE;
                 numMur++;
@@ -367,7 +367,7 @@ void lectureNiveau(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_S
             {
                 carte[i][j] = OBJECTIF;
 
-                objectif[numObjectif] = IMG_Load("objectif.png");
+                objectif[numObjectif] = SDL_LoadBMP("objectif.bmp");
                 posObjectif[numObjectif].x = j*T_ICONE;
                 posObjectif[numObjectif].y = i*T_ICONE;
                 numObjectif++;
@@ -375,7 +375,7 @@ void lectureNiveau(char niveau[], SDL_Surface** perso, SDL_Rect* posPerso, SDL_S
             else if(ligneFichier[i][j] == '9')
             {
                 carte[i][j] = PERSO;
-                *perso = IMG_Load("mario_bas.gif");
+                *perso = SDL_LoadBMP("mario_bas.bmp");
                 posPerso->x = j*T_ICONE;
                 posPerso->y = i*T_ICONE;
             }
@@ -423,7 +423,7 @@ void placePerso(int carte[MAP_WIDTH][MAP_HEIGHT], SDL_Rect posCurseur, SDL_Surfa
 
     carte[(posCurseur.y)/T_ICONE][(posCurseur.x)/T_ICONE] = PERSO;
 
-    *perso = IMG_Load("mario_bas.gif");
+    *perso = SDL_LoadBMP("mario_bas.bmp");
     posPerso->x = posCurseur.x;
     posPerso->y = posCurseur.y;
 

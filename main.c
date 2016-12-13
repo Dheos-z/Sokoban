@@ -12,7 +12,7 @@ Reste à faire :
 #include <SDL/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include "jeu.h"
 #include "constantes.h"
 #include "choixNiveau.h"
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
     // Chargement du menu principal
 
-    menu = IMG_Load("menu.jpg");
+    menu = SDL_LoadBMP("menu.bmp");
     posMenu.x = (WIDTH-408)/2;
     posMenu.y = (HEIGHT-408)/2;
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <SDL/SDL_image.h>
+// #include <SDL/SDL_image.h>
 #include "jeu.h"
 #include "constantes.h"
 #include "choixNiveau.h"
@@ -10,7 +10,7 @@
 int choixNiveau(SDL_Surface* ecran)
 {
     int continuer = 1, i = 0, j = 0, valeur = 1, nbDeLvl = 0;
-    char fichierImage[T_MAX] = "niveauX.png";
+    char fichierImage[T_MAX] = "niveauX.bmp";
     SDL_Surface *niveau[10], *menuJouer = NULL;
     SDL_Rect posNiveau[10], posMenuJouer;
     SDL_Event event;
@@ -21,15 +21,15 @@ int choixNiveau(SDL_Surface* ecran)
 
 
     // INITIALISATION DES SURFACES
-    initSurfacesLvl(niveau, posNiveau); // Initialisation des 10 niveaux avec l'image "vide.png"
+    initSurfacesLvl(niveau, posNiveau); // Initialisation des 10 niveaux avec l'image "vide.bmp"
 
     for(i = 0; i < nbDeLvl; i++)
     {
         fichierImage[6] = '0' + i; // On va modifier la chaine de caractère pour que le programme détecte le nom fichier correspondant à chaque niveau
-        niveau[i] = IMG_Load(fichierImage);
+        niveau[i] = SDL_LoadBMP(fichierImage);
     }
 
-    menuJouer = IMG_Load("menu_jouer.png");
+    menuJouer = SDL_LoadBMP("menu_jouer.bmp");
 
     posMenuJouer.x = 0;
     posMenuJouer.y = 0;
@@ -278,7 +278,7 @@ void initSurfacesLvl(SDL_Surface* niveau[], SDL_Rect posNiveau[])
     {
         for(j = 0; j < 5; j++)
         {
-            niveau[5*i + j] = IMG_Load("vide.png");
+            niveau[5*i + j] = SDL_LoadBMP("vide.bmp");
 
             posNiveau[5*i + j].x = posX + 2*j*T_ICONE;
             posNiveau[5*i + j].y = posY + 3*i*T_ICONE;
